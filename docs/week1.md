@@ -1,7 +1,7 @@
 ## Summary of Chapter 1
 
 - The "Swiss Army Knife" of programmers
-- Take a peek at the data; Perform simple data manipulation; Automation; Glue
+- Take a peek at the data; Perform simple data manipulations; Automation; Glue
 - Hundreds of small programs, each carrying out a specific task
 - "Worse is better"
 - Connect input and output using "pipe" `|` and redirection `>` (or `>>`)
@@ -33,6 +33,16 @@
 - Sort numerically `sort -n myfile`
 - Unique lines `uniq myfile` (with number of occurrences `uniq -c myfile`) **The file needs to be sorted!**
 
+## Pipes and redirection
+
+- Send text to a file `echo "my first line" > myfile.txt`
+- Append text to a file `echo "my second line" >> myfile.txt`
+- Pipe operator: take whatever is on the left, and use as input for the command on the right.
+- `ls -l | wc -l` (count files and sub-directories in current directory)
+- `sort myfile | uniq > no_duplicates.txt` sort and remove duplicates
+
+
+
 
 ### Warmup: Nobel data
 
@@ -42,6 +52,8 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 
 <details><summary>Solution</summary>
 <p>
+
+In the shell, type
 
 `tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c`
 

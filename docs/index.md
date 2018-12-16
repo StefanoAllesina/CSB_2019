@@ -1,8 +1,8 @@
 ## Week 1: UNIX Shell
 
-## Week 2: Basic Programming in Python
-
 - [Lecture notes and warmup](week1)
+
+## Week 2: Basic Programming in Python
 
 ## Week 3: Advanced Programming in Python
 
