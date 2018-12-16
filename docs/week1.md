@@ -76,13 +76,13 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 - Find the winners of multiple Nobel prizes
 
 <details><summary>Solution</summary>
-<p>
+   <p>
 
 #### Type in the terminal:
 
 `cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10`
 
-</p>
+  </p>
 </details>
 
 
