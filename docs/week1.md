@@ -7,7 +7,7 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 <details><summary>Solution</summary>
 <p>
 
-```
+```bash
 tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c
 ```
 
@@ -19,7 +19,7 @@ tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c
 <details><summary>Solution</summary>
 <p>
 
-```
+```bash
 cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10
 ```
 
@@ -32,7 +32,7 @@ cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10
 <details><summary>Solution</summary>
 <p>
 
-```
+```bash
 cut nobel.csv -f6 -d, | sort | uniq -c | sort -n -r | head -n10
 ```
 
