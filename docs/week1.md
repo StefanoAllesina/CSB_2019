@@ -67,20 +67,24 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 
 - Find the number of winners for each Nobel prize (`chemistry`, `economics`, `literature`, `medicine`, `peace`, `physics`). 
 
-<details><summary>Solution</summary>
+<details>
+ <summary>Solution</summary>
 
-`tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c | sort -nr`
+```
+tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c | sort -nr
+```
 
 </details>
 
 - Find the winners of multiple Nobel prizes
 
-<details><summary>Solution</summary>
+<details>
+ <summary>Solution</summary>
    <p>
 
-#### Type in the terminal:
-
-`cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10`
+```
+cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10
+```
 
   </p>
 </details>
@@ -88,14 +92,23 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 
 - Find the most common `surname`s among the winners
 
-<details><summary>Solution</summary>
+<details>
+ <summary>Solution</summary>
 
-#### Type in the terminal:
-
-`cut nobel.csv -f6 -d, | sort | uniq -c | sort -nr | head -n10`
+```
+cut nobel.csv -f6 -d, | sort | uniq -c | sort -nr | head -n10
+```
 
 </details>
 
 - The Nobel prizes have not been awarder every year since 1901. Which one has been awarded the most? Which the least?
 
+<details>
+ <summary>Solution</summary>
+
+```
 tail -n+2 nobel.csv | cut -d, -f 2-3 | sort | uniq | cut -d, -f2 | sort | uniq -c | sort -nr
+```
+
+</details>
+
