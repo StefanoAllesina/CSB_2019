@@ -112,3 +112,20 @@ tail -n+2 nobel.csv | cut -d, -f 2-3 | sort | uniq | cut -d, -f2 | sort | uniq -
 
 </details>
 
+
+### Warmup: Endangered species
+
+Data taken from the [European Red List](https://www.eea.europa.eu/data-and-maps/data/european-red-lists-7)
+
+Species codes:
+- **EX** Extinct
+- **RE** Regionally Extinct
+- **CR** Critically Endangered (= threatened species) 
+- **EN** Endangered (= threatened species)
+- **VU** Vulnerable (= threatened species)
+- **NT** Near Threatened
+- **LC** Least Concern
+- **DD** Data Deficient
+- **NA** Not Applicable
+
+
