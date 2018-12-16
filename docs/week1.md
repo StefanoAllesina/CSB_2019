@@ -1,3 +1,12 @@
+## Summary of Chapter 1
+
+- The "Swiss Army Knife" of programmers
+- Take a peek at the data; Perform simple data manipulation; Automation; Glue
+- Hundreds of small programs, each carrying out a specific task
+- "Worse is better"
+- Connect input and output using "pipe" `|` and redirection `>` (or `>>`)
+
+
 ### Warmup: Nobel data
 
 The file `data/nobel.csv` contains the names and motivations for all the Nobel prizes awarded so far.
