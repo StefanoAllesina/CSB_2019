@@ -40,9 +40,26 @@
 - Pipe operator: take whatever is on the left, and use as input for the command on the right.
 - `ls -l | wc -l` (count files and sub-directories in current directory)
 - `sort myfile | uniq > no_duplicates.txt` sort and remove duplicates
+- Can become complex: `history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10` prints 10 most used commands
+
+## Delimited text files
+
+- Very common format to store data
+- Delimiter can be comma, `Tab`, semicolon, special character
+- You can select certain columns using `cut`
+- `cut -d; -f3-5 mycsv.csv`: extract columns 3, 4, and 5 from `mycsv.csv`, which is a semicolon-separated file
+- `cut -f3,6,9 myspace.tsv`: by default, separated by spaces/tabs; select non-adjacent columns
 
 
+## Help with commands
 
+- Very long manual: `man cut` **To exit, press `q`**
+
+## Substituting characters
+
+- `echo "aaabbbccc" | tr "a" "b"` changes `a` into `b`
+- `echo "aaabbbccc" | tr -d "a"` removes all occurrences of `a`
+- `echo "aaabbbccc" | tr -s "a"` squeezes all occurrences of `a`
 
 ### Warmup: Nobel data
 
@@ -52,16 +69,20 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 
 <details><summary>Solution</summary>
 
-`tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c`
+`tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c | sort -nr`
 
 </details>
 
 - Find the winners of multiple Nobel prizes
 
 <details><summary>Solution</summary>
+<p>
+
+#### Type in the terminal:
 
 `cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10`
 
+</p>
 </details>
 
 
@@ -69,6 +90,12 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 
 <details><summary>Solution</summary>
 
-`cut nobel.csv -f6 -d, | sort | uniq -c | sort -n -r | head -n10`
+#### Type in the terminal:
+
+`cut nobel.csv -f6 -d, | sort | uniq -c | sort -nr | head -n10`
 
 </details>
+
+- The Nobel prizes have not been awarder every year since 1901. Which one has been awarded the most? Which the least?
+
+tail -n+2 nobel.csv | cut -d, -f 2-3 | sort | uniq | cut -d, -f2 | sort | uniq -c | sort -nr
