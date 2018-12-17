@@ -33,7 +33,7 @@
 - Sort numerically `sort -n myfile`
 - Unique lines `uniq myfile` (with number of occurrences `uniq -c myfile`) **The file needs to be sorted!**
 
-## Pipes and redirection
+### Pipes and redirection
 
 - Send text to a file `echo "my first line" > myfile.txt`
 - Append text to a file `echo "my second line" >> myfile.txt`
@@ -42,7 +42,7 @@
 - `sort myfile | uniq > no_duplicates.txt` sort and remove duplicates
 - Can become complex: `history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10` prints 10 most used commands
 
-## Delimited text files
+### Delimited text files
 
 - Very common format to store data
 - Delimiter can be comma, `Tab`, semicolon, special character
@@ -50,12 +50,11 @@
 - `cut -d; -f3-5 mycsv.csv`: extract columns 3, 4, and 5 from `mycsv.csv`, which is a semicolon-separated file
 - `cut -f3,6,9 myspace.tsv`: by default, separated by spaces/tabs; select non-adjacent columns
 
-
-## Help with commands
+### Help with commands
 
 - Very long manual: `man cut` **To exit, press `q`**
 
-## Substituting characters
+### Substituting characters
 
 - `echo "aaabbbccc" | tr "a" "b"` changes `a` into `b`
 - `echo "aaabbbccc" | tr -d "a"` removes all occurrences of `a`
@@ -112,20 +111,118 @@ tail -n+2 nobel.csv | cut -d, -f 2-3 | sort | uniq | cut -d, -f2 | sort | uniq -
 
 </details>
 
+### Matching lines with grep
+
+`grep` is based on regular expressions, which we will see in Chapter 5. However, it is quite useful to work with literal matches (i.e., does the string appear in a line?). We will revisit this once we're familiar with regex, to see how powerful it can be.
+
+- `grep "a string" a_file.txt` return the lines in `a_file.txt` that contain `a string`
+- `grep -c "a string" a_file.txt` just count how many lines match
+- `grep -w myword a_file.txt` just match entire words (i.e., flanked by spaces, punctuation, etc on the left and right)
+- `grep -i MyWoRd a_file.txt` ignore case
+- `grep -n myword a_file.txt` also print line numbers
+- `grep -v myword a_file.txt` invert match: only return lines that do not contain the pattern
+- `grep -o myword a_file.txt` only print the matched string (not the entire line)
+- `grep -A 1 myword a_file.txt` also print the following line (`A` stands for `A`fter)
+- `grep -B 3 myword a_file.txt` also print the preceding three lines (`B` stands for `B`efore)
+- `grep "pattern_1\|pattern_2\|pattern_3" a_file.txt` match one of several patterns
 
 ### Warmup: Endangered species
 
 Data taken from the [European Red List](https://www.eea.europa.eu/data-and-maps/data/european-red-lists-7)
 
 Species codes:
-- **EX** Extinct
-- **RE** Regionally Extinct
-- **CR** Critically Endangered (= threatened species) 
-- **EN** Endangered (= threatened species)
-- **VU** Vulnerable (= threatened species)
-- **NT** Near Threatened
-- **LC** Least Concern
-- **DD** Data Deficient
-- **NA** Not Applicable
+
+1. **EX** Extinct
+1. **RE** Regionally Extinct
+1. **CR** Critically Endangered (= threatened species) 
+1. **EN** Endangered (= threatened species)
+1. **VU** Vulnerable (= threatened species)
+1. **NT** Near Threatened
+1. **LC** Least Concern
+1. **DD** Data Deficient
+1. **NA** Not Applicable
+
+- Look at the first few lines to familiarize yourself with the data
+
+<details>
+ <summary>Solution</summary>
+
+```
+head European_Red_List.csv
+```
+
+</details>
+
+- Count the number of occurrences for each category (`EX`, `RE`, etc.)
+
+<details>
+ <summary>Solution</summary>
+
+```
+tail -n+2 European_Red_List.csv | cut -d, -f10 | sort | uniq -c
+```
+
+</details>
+
+- Repeat, but only consider birds (class `AVES`)
+
+<details>
+ <summary>Solution</summary>
+
+```
+grep -w AVES European_Red_List.csv | cut -d, -f10 | sort | uniq -c | sort -nr
+```
+
+</details>
+
+- For each order of birds, compute the number of extinct/near extinct (`EX`, `RE` or `CE`) species
+
+<details>
+ <summary>Solution</summary>
+
+```
+grep AVES European_Red_List.csv | grep -w "CR\|EX\|RE" | cut -d, -f5,10 | sort | uniq -c
+```
+
+</details>
+
+### Simple scripts
+
+You can collect a series of commands into a **script**. Moreover, you can introduce generic arguments, making your script more general. For example, what does this program do?
+
+```bash
+#!/bin/bash
+# the previousnot a comment: where to find the bash program
+
+cat $1 | sort | uniq > nodup_$1
+```
+
+- Save the script as `sandbox/script1.sh`
+- Make executable `chmod +rx script1.sh`
+- Try running `./script1.sh test_file.txt`
+
+A more complex example:
+
+```bash
+#!/bin/bash
+# launch R code several times, 
+# each time using a different seed for the random number generator
+
+for i in `seq 1 $2`;
+  do
+    echo "Launching program $1 with seed $i"
+    Rscript $1 $i
+  done
+
+```
+
+- Save the script as `sandbox/script2.sh`
+- Make executable `chmod +rx script2.sh`
+- Launch `./script2.sh a_test.R 7`
+
+### More resources on bash
+
+- A [good collection](https://github.com/ruanyf/simple-bash-scripts) of very simple scripts, showing you the type of things you can do.
+- Many good resources [here](https://github.com/awesome-lists/awesome-bash)
 
 
