@@ -21,6 +21,8 @@ git clone https://github.com/StefanoAllesina/CSB_2019.git
 
 #### Week 2: Basic Programming in Python
 
+- [Lecture notes and warmup](week2)
+
 ### Week 3: Advanced Programming in Python
 
 ### Week 4: Regular expressions
