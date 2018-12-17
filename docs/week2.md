@@ -1,11 +1,14 @@
 ## Summary of Chapter 3
 
 - Programming in Python
+
 - Many programming languages are available. Pick at least 3:
      - One for prototyping, simple tasks (my lab: `Python`)
      - One for stats and plotting (my lab: `R`)
      - One for large-scale simulations and computing-intensive tasks (my lab: `C`)
+
 - We use jupyter, because it looks the same on any architecture
+
 - Open a terminal, go to the `week2/sandbox`, and type `jupyter notebook`
 
 ### Assignment
@@ -69,11 +72,15 @@ a or b
 - Dynamic typing: the type of a variable is determined at runtime. 
 - Casting: you can change the variable type (if sensible).
 - Object oriented: each type comes with a set of functions (*methods*).
+- To see the variables (and functions) you've created, type `who`
 
 ```python
 x = 8 # now x is an integer
 x = x / 2
 print(x)
+
+y = "77" # this is a string
+x + int(y) # cast to integer
 
 x = "a string"
 print("now x is", x)
