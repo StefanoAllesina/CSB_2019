@@ -208,3 +208,4 @@ The data (taken from [Data Dryad](https://datadryad.org/resource/doi:10.5061/dry
 2. How many `M`, `F` for each country?
 3. For each country, select actors of age 10-12. Are females more likely than males to reject when the distribution is unequal and to their advantage?
 
+Here's the [solution](solution/week2)
