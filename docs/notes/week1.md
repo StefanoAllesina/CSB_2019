@@ -1,6 +1,6 @@
 ## Summary of Chapter 1
 
-- The "Swiss Army Knife" of programmers
+- The shell: the "Swiss Army Knife" of programmers
 - Take a peek at the data; Perform simple data manipulations; Automation; Glue
 - Hundreds of small programs, each carrying out a specific task
 - "Worse is better"
@@ -9,11 +9,11 @@
 ### Navigating the directory system
 
 - To find out where you are: `pwd` (print working directory)
-- Move one up with `cd ..`; move down `cd wheretogo`
+- Move one up with `cd ..`; move down using `cd wheretogo`
 - Relative vs. absolute path: `cd /home/sallesina/CSB/unix` vs. `cd ../CSB/unix`
 - Home directory `~`
 - Go back to where you were last `cd -`
-- List files `ls`
+- List files and directories `ls`
 - Command modifiers `ls -l` (long format)
 
 ### Working with files and directories
@@ -113,7 +113,7 @@ tail -n+2 nobel.csv | cut -d, -f 2-3 | sort | uniq | cut -d, -f2 | sort | uniq -
 
 ### Matching lines with grep
 
-`grep` is based on regular expressions, which we will see in Chapter 5. However, it is quite useful to work with literal matches (i.e., does the string appear in a line?). We will revisit this once we're familiar with regex, to see how powerful it can be.
+`grep` is based on regular expressions, which we will explore in Chapter 5. However, it is quite useful to work with literal matches (i.e., does the string appear in a line?). We will revisit this once we're familiar with regex, to see how powerful it can be.
 
 - `grep "a string" a_file.txt` return the lines in `a_file.txt` that contain `a string`
 - `grep -c "a string" a_file.txt` just count how many lines match
