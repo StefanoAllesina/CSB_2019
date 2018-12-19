@@ -1,6 +1,14 @@
 ## Summary of Chapter 6
 
-### Warmup exercise: bifurcation diagram
+- There are very many Python packages expressely designed for scientists
+- Find out the ones you will need the most for your research
+- `numpy` and `scipy` provide a new data type (`array`) that is essential for manipulating data. The huge package has much to offer for statistics, random number generation, linear algebra, differential equations, numerical integration, optimization, and much more
+- `pandas` brings `R`'s data frames into Python. Excellent to manipulate data organized in spreadsheets.
+- `Biopython` allows you to perform a lot of calculations for molecular biology in an automated fashion
+
+Instead of going on reviewing each tool, we are going to consider two long examples: the first will allow us to practice our `numpy`, the second our `pandas`.
+
+### Warmup exercise: bifurcation diagram for the logistic map
 
 To work a bit with `numpy` and `scipy`, we're going to explore a simple model for population dynamics that however has an interesting behavior, the [logistic map](https://en.wikipedia.org/wiki/Logistic_map). See the nice paper by May ([Nature 1976](https://www.nature.com/articles/261459a0)).
 
@@ -48,5 +56,29 @@ def get_minmax(x_t):
 
 Here's a possible [solution](solutions/week5_lm)
 
+### Warmup exercise: nepotism and gender imbalance in Italian academia
 
+Curiously, I have written two papers on this topic. Here we are going to use the data by Grilli and Allesina ([PNAS 2017](https://www.pnas.org/content/114/29/7600)) to find about gender inequality and nepotism in Italian professors. 
+
+You find the data [here](https://github.com/StefanoAllesina/namepairs/tree/master/data)
+
+1. Using `pandas`, read the `csv` file `ita_2000.csv` directly from the internet.
+
+2. Take a look at the data: for each of the 52,000 Italian professors who were active in 2000, it reports a code for the first name, a code for the last name, the gender, rank, university and discipline. 
+
+3. Take for example `Eng-Ind` (industrial engineering): there are 396 women and 3734 men (for a total of 4130 professors). Are there too few women? To test this, compute the probability of sampling less than 396 women out of 4130 professors when drawing them at random without repetition. Contrast this with what expected using the binomial distribution. 
+
+4. Repeat for each discipline: which ones have an "excess" of women? Which ones a "scarcity"?
+
+5. Try with the data for 2015: are things getting better?
+
+6. Now turn to last names: a scarcity of last names in a discipline could signal nepotistic practices (as children would bear the same last name as the father). Take `Law`: there are 3721 professors, and we find 3037 names. Are these many names, or less than we would expect? Compute an approximate p-value for the probability of finding fewer names when sampling from the set of professors. 
+
+7. Repeat for each discipline: which ones are most likely to be impacted by nepotism?
+
+8. Try with the data for 2015: are things getting better?
+
+Here's a possible [solution](solutions/week5_nepo)
+
+**Note:** This would be so much simpler if we could use `dplyr` in `R`; wait for Chapter 9!
 
