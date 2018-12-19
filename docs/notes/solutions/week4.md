@@ -1,3 +1,6 @@
+## Possible solution to warmup problem Week 4
+
+```python
 import re
 
 # 1. For each author, use regular expressions to extact:
@@ -68,4 +71,5 @@ print("Exercise 3")
 print("Average:", round(mean_papers, 2))
 
 print("")
+```
 

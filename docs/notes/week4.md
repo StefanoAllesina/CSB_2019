@@ -176,5 +176,5 @@ We are going to exploit a small ~~bug~~ feature of Scopus.
 
 3. What is the average number of papers for these authors?
 
-
+Here's the [solution](solutions/week4)
 
