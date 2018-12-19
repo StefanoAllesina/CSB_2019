@@ -58,6 +58,8 @@ git clone https://github.com/StefanoAllesina/CSB_2019.git
 
 ### Week 5: Scientific Programming
 
+- [Lecture notes and warmup](notes/week5)
+
 ### Week 6: Python wrapup
 
 ### Week 7: Programming in R
