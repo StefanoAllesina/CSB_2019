@@ -54,6 +54,8 @@ git clone https://github.com/StefanoAllesina/CSB_2019.git
 
 ### Week 4: Regular expressions
 
+- [Lecture notes and warmup](notes/week4)
+
 ### Week 5: Scientific Programming
 
 ### Week 6: Python wrapup
