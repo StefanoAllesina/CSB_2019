@@ -62,6 +62,8 @@ git clone https://github.com/StefanoAllesina/CSB_2019.git
 
 ### Week 6: Python wrapup
 
+- [Lecture notes and warmup](notes/week6)
+
 ### Week 7: Programming in R
 
 ### Week 8: Data wrangling and visualization
