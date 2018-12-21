@@ -110,7 +110,7 @@ ll[[2]][c(1,3)]
 
 Possibly, the most used data structure in `R`. Store spreadsheet-like data:
 
-```{r}
+```r
 df <- read.csv("Goldberg2010_data.csv",
                stringsAsFactors = FALSE, # by default, strings are treated as categorical values
                quote = "") 
@@ -168,7 +168,7 @@ for (i in 2:10){
 
 `while` loop:
 
-```{r,eval=FALSE}
+```r
 while (a_contidion_is_true){
   do_something()
   # update condition!
