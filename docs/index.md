@@ -66,9 +66,13 @@ git clone https://github.com/StefanoAllesina/CSB_2019.git
 
 ### Week 7: Programming in R
 
+- [Lecture notes and warmup](notes/week7)
+
 ### Week 8: Data wrangling and visualization
 
 ### Week 9: R wrapup
+
+- [Lecture notes and warmup](notes/week9)
 
 ### Week 10: Relational databases
 
