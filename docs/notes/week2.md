@@ -150,12 +150,61 @@ Dictionaries: most pythonic data structure; key-value pairs.
 d = {'first': 'first value', 'second':[1,2]}
 d.keys() # access keys
 d.values() # access values
-
+# assign a new key-value pair
+d['third'] = 'we can add a new value'
+# overwrite previous values
+d['third'] = 'another value'
+# remove a key and assign value
+st = d.pop('third')
+# join two dictionaries
+d2 = {'1': 1, '2': 2}
+d.update(d2)
+# the order of keys is arbitrary!
+# anything "immutable" can serve as key
+d[1] = '1'
 ```
 
-Tuples: unmutable lists
+Tuples: immutable lists
+
+```python
+tu = (1, 1, 'two', 3, 'five')
+# access elements as in list
+tu[0]
+tu[-1]
+# count occurrences
+tu.count(1)
+# find index
+tu.index('two')
+```
 
 Sets: no duplicates
+
+```python
+# create a set 
+s1 = set([1, 1, 2, 4, 8, 8, 16])
+s2 = {2, 3, 5, 7, 11, 13}
+# intersection
+s1 & s2
+s1.intersection(s2)
+# union 
+s1 | s2
+s1.union(s2)
+# difference
+s1 ^ s2
+s1.symmetric_difference(s2)
+# subset and superset
+s3 = {1, 3, 8}
+s3.issubset(s1 | s2)
+(s1|s2).issuperset(s3)
+```
+
+Summary of data structures:
+```python
+(1, 2) # tuple
+{1, 2} # set
+{1: 1, 2: 2} # dictionary
+[1, 2] # list
+```
 
 ### Some built-in function
 
@@ -179,6 +228,54 @@ all(x) # returns True if all elements are True
 any(x) # returns True if any element is True
 range(1, 5, 2) # generates a range of values
 ```
+
+### Branching
+
+One of the pillars of programming: depending on the state of a variable, take alternate paths in the code. "Choose your own adventure!"
+
+*If you decide to fight the squid with your spear gun, hoping to scare it off, turn to page 17.*
+
+*If you decide to signal Maray to pull you up at top speed, knowing you will get the bends, turn to page 19.*
+
+```python
+if squid:
+   page = 17
+elif signal:
+   page = 19
+else:
+   page = 3245
+```
+
+### Looping
+
+Another pillar of programming: repeat the same code, possibly with small variations.
+
+First, we need to see the function `range`:
+
+```python
+list(range(5))
+# [0, 1, 2, 3, 4]
+list(range(1, 7 ,2)) # from, to, step
+# [1, 3, 5]
+```
+
+Now we can write a for loop
+```python
+for i in range(10):
+   print(i)
+```
+
+Use `for` loops to iterate over a list, a string, or a tuple. If you want to go on until a condition is met, use `while`:
+
+```python
+x = 12345
+while x % 266 != 0:
+  x = x + 1
+print(x)
+```
+
+### Reading and writing files
+
 
 ### Warmup: Fairness in seven societies
 
