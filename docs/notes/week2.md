@@ -276,6 +276,47 @@ print(x)
 
 ### Reading and writing files
 
+Input/output:
+
+- text files
+- structured text files (e.g., `csv`)
+- binary files (e.g., `mp3`)
+
+Flow:
+- open a file (for writing, reading, or appending)
+- read/write 
+- close the file
+
+Example:
+```python
+f = open('test.txt', 'w') # r for reading, a for appending
+# now f is a file object
+f.write('ciao\n') # \n is the line terminator in Linux
+f.close()
+```
+
+Automatically close file when you're done:
+
+```python
+with open('test.txt', 'w') as f:
+    f.write('ciao\n')
+```
+
+Useful library to manipulate `csv` files:
+
+```python
+import csv
+
+with open('test.csv', 'r') as f:
+    # read as dictionary:
+    # the header defines the keys
+    # very handy: you don't have to 
+    # remember the position of the cols
+    rd = csv.DictReader(f)
+    for row in rd:
+       for key, value in row.items()
+           print(key, value)
+```
 
 ### Warmup: Fairness in seven societies
 
