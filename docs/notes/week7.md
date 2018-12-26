@@ -196,31 +196,31 @@ For our warmup, we are going to use a spreadsheet with information on 992 TED ta
 
 > Kinnaird, Katherine M. and John Laudun. 2018. [TED Talks Data Set](https://github.com/johnlaudun/tedtalks/data).
 
-1. Plot an histogram for the number of views. Is the distribution approximately log-normal?
+- Plot an histogram for the number of views. Is the distribution approximately log-normal?
 
-2. Transform the `duration` to seconds
+- Transform the `duration` to seconds
 
 **Hint:** Look [here](https://stackoverflow.com/questions/29067375/r-convert-hoursminutesseconds)
 
-3. Plot duration in seconds vs. log number of views: does duration correlate with views?
+- Plot duration in seconds vs. log number of views: does duration correlate with views?
 
-4. Count the number of days since publication, and plot against log views
+- Count the number of days since publication, and plot against log views
 
 **Hint:** Look [here](https://stackoverflow.com/questions/5261347/finding-days-since-date-in-r-from-csv-file)
 
-5. Find the top 10 tags
+- Find the top 10 tags
 
-6. For each top tags, add a column to the data frame specifying if the tag is present
+- For each top tags, add a column to the data frame specifying if the tag is present
 
 **Hint:** you could use the function `grepl`
 
-7. Build a linear model with 
- - Response variable = log(views)
- - Explanatory variables = published_days, seconds, technology, science, culture, etc.
- - Which tags significantly increase views?
+- Build a linear model with 
+  - Response variable = log(views)
+  - Explanatory variables = published_days, seconds, technology, science, culture, etc.
+  - Which tags significantly increase views?
 
 **Hint:** Look [here](https://stackoverflow.com/questions/7742301/using-column-numbers-not-names-in-lm)
 
-8. Add to the model the effect of the top 10 speakers by number of talks. Does this improve the fit?
+- Add to the model the effect of the top 10 speakers by number of talks. Does this improve the fit?
 
 Here's a possible [solution](solutions/week7)

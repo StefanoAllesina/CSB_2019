@@ -16,12 +16,12 @@ shows the first page of ecology, containing information on 10 preprints. At the 
 
 and so on. 
 
-1. Write code that downloads the first page for the *Subject Area* of choice.
-2. Save the file to  `data/0.html`.
-3. Use regular expressions to extract the total number of pages.
-4. Download all the pages for the *Subject Area*.
+- Write code that downloads the first page for the *Subject Area* of choice.
+- Save the file to  `data/0.html`.
+- Use regular expressions to extract the total number of pages.
+- Download all the pages for the *Subject Area*.
 
-*Hints:* 
+**Hint:**
 This code downloads a page using Python
 
 ```python
@@ -34,7 +34,7 @@ Here's a possible [solution](solutions/week6_download)
 
 ### Part 2: Extract information from the pages
 
-1. We're going to use BeautifulSoup, a great HTML parser. Here's what you would do to extract all paper titles from a page:
+- We're going to use BeautifulSoup, a great HTML parser. Here's what you would do to extract all paper titles from a page:
 
 ```python
 from bs4 import BeautifulSoup
@@ -53,19 +53,19 @@ for paper in papers:
     print(title)
 ```
 
-2. For each paper in each page, extract the `paper_id`, `date`, `num_authors`, `title`, and save into a csv called `bioRXiv.csv`
+- For each paper in each page, extract the `paper_id`, `date`, `num_authors`, `title`, and save into a csv called `bioRXiv.csv`
 
 
 Here's a possible [solution](solutions/week6_download)
 
 ### Part 3: Data analysis
 
-1. Document the change in number of submissions: plot the number of submission per week for each year, and check whether it's growing.
+- Document the change in number of submissions: plot the number of submission per week for each year, and check whether it's growing.
 
-2. Draw the distribution of the number of authors in the *Subject Area*, and compute mean, median and other summary statistics on the distribution. If people choose different areas, we can see whether different disciplines have different authorship cultures.
+- Draw the distribution of the number of authors in the *Subject Area*, and compute mean, median and other summary statistics on the distribution. If people choose different areas, we can see whether different disciplines have different authorship cultures.
 
 Here's a possible [solution](solutions/week6_download)
 
 ### Part 4: Automation
 
-1. Make all programs runnable from the command line. The first program should accept a subject area as argument.
+- Make the first two programs runnable from the command line. They should accept a subject area as argument.
