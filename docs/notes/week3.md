@@ -24,6 +24,7 @@ def default_args(x = 5, y = 'test'):
 ```
 
 ### Importing packages and modules
+
 ```python
 import scipy
 import numpy as np # shorthand
@@ -36,9 +37,9 @@ Discuss namespace pollution
 
 1. Save functions into a `py` file (e.g., `test_mod.py`)
 2. Import functions into main program 
+
 ```python
 import test_mod
-
 # now you can access the functions
 test_mod.my_function()
 ```
