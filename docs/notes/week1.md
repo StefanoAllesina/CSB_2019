@@ -69,9 +69,7 @@ The file `data/nobel.csv` contains the names and motivations for all the Nobel p
 <details>
  <summary>Solution</summary>
 
-```
 tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c | sort -nr
-```
 
 </details>
 
@@ -81,9 +79,7 @@ tail -n+2 nobel.csv | cut -f3 -d, | sort | uniq -c | sort -nr
  <summary>Solution</summary>
    <p>
 
-```
 cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10
-```
 
   </p>
 </details>
@@ -94,9 +90,7 @@ cut nobel.csv -f5-6 -d, | sort | uniq -c | sort -n -r | head -n10
 <details>
  <summary>Solution</summary>
 
-```
 cut nobel.csv -f6 -d, | sort | uniq -c | sort -nr | head -n10
-```
 
 </details>
 
@@ -105,9 +99,7 @@ cut nobel.csv -f6 -d, | sort | uniq -c | sort -nr | head -n10
 <details>
  <summary>Solution</summary>
 
-```
 tail -n+2 nobel.csv | cut -d, -f 2-3 | sort | uniq | cut -d, -f2 | sort | uniq -c | sort -nr
-```
 
 </details>
 
@@ -147,9 +139,7 @@ Species codes:
 <details>
  <summary>Solution</summary>
 
-```
 head European_Red_List.csv
-```
 
 </details>
 
@@ -158,9 +148,7 @@ head European_Red_List.csv
 <details>
  <summary>Solution</summary>
 
-```
 tail -n+2 European_Red_List.csv | cut -d, -f10 | sort | uniq -c
-```
 
 </details>
 
@@ -169,9 +157,7 @@ tail -n+2 European_Red_List.csv | cut -d, -f10 | sort | uniq -c
 <details>
  <summary>Solution</summary>
 
-```
 grep -w AVES European_Red_List.csv | cut -d, -f10 | sort | uniq -c | sort -nr
-```
 
 </details>
 
@@ -180,9 +166,7 @@ grep -w AVES European_Red_List.csv | cut -d, -f10 | sort | uniq -c | sort -nr
 <details>
  <summary>Solution</summary>
 
-```
 grep AVES European_Red_List.csv | grep -w "CR\|EX\|RE" | cut -d, -f5,10 | sort | uniq -c
-```
 
 </details>
 
@@ -224,5 +208,3 @@ for i in `seq 1 $2`;
 
 - A [good collection](https://github.com/ruanyf/simple-bash-scripts) of very simple scripts, showing you the type of things you can do.
 - Many good resources [here](https://github.com/awesome-lists/awesome-bash)
-
-
