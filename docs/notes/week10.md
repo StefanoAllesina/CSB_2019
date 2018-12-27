@@ -1,183 +1,248 @@
-## Summary of Chapter 5
+## Summary of Chapter 10
 
-- Regular expressions allow to extract text that matches a pattern
-- You write the pattern using a special notation (metacharacters)
-- You use the pattern to search in the text, producing a "match" or extracting all occurrences
+- When you have much data, it is convenient to organize them in a relational database.
+- You save space (better encoding of common data types).
+- You can have multiple users query/modify the data at the same time.
+- You have added security.
+- You don't need to store the data locally.
 
-Uses:
+### SQL
 
-- Parse semi-structured files
-- Extract information from free text
-- More sophisticated find-replace
-- ...
+Most modern relational databases implement a Structured Query Language (with many dialects) allowing you to port your queries across platforms.
 
-Strengths:
+### Building the database
 
-- One line of code can do a lot!
-- Very fast
-- Well-implemented in Python (cfr. R)
+I have rearranged the data from week 9 in a format that can be imported into the database directly, and saved it into `week10/data`. Take a look at the `.csv` files:
 
-Weaknesses:
-
-- Very difficult to debug
-- Can be hard to write the "perfect" regex
-
-What you want to be doing: 
-
-<img src="https://imgs.xkcd.com/comics/regular_expressions.png" alt="regex hero" width="700">
-
-What you don't want to be doing: 
-
-<img src="https://pbs.twimg.com/media/Cr7mS_OWcAA7Hzt.jpg:large" alt="regex by trial and error" width="700">
-
-### Basics
-
-```python
-import re # need to load module
-# "literal" match --- match exactly what you wrote
-re.findall(r'a', 'ciao') # returns ['a']
-re.findall(r'99', '1099099') # returns ['99', '99']
+```
+head all_institutions.csv
+head all_edges.csv
 ```
 
-### Metacharacters
+Now we're going to launch `sqlite3` and build the database one step at a time. Then, I'll show you how to build it using a script
 
-- `\n` match a new line
-- `\t` match a tab
-- `\s` match a space
-- `\d` match a digit (0123456789)
-- `\w` match a "word character" (a-z, A-Z, _, 0-9)
-- `.` match any character (note: no backslash --- to match a dot use `\.`)
-- `[abc87]` match any of the characters between the brackets
-- `[a-z]` match any character between `a` and `z`
-- `[^ATGC]` do not match characters `ATGC`
-- `\b` match word boundary (used to detect full words)
-
-```python
-re.findall(r'\w\n\w', 'This is a line\nThis is another line')
-# returns ['e\nT']
-
-re.findall(r'\d\.\d.', '12.3456')
-# returns ['2.34']
+```
+$ sqlite3 # or wherever your program is
+sqlite> .mode csv
+sqlite> .import all_edges.csv edges
 ```
 
-### Quantifiers
+This command has created a table called `edges`. See that it worked:
 
-- `?` match 0 or 1 time
-- `*` match 0 or more times
-- `+` match 1 or more times
-- `{5}` match exactly 5 times
-- `{5,}` match at least 5 times
-- `{5, 7}` match between 5 and 7 times (included)
-
-```python
-re.findall(r'\d*\.\d{,2}', '123.45678')
-# returns ['123.45']
-re.findall(r'\d*\.\d*', '12345678')
-# returns []
+```
+sqlite> .table
+edges 
+sqlite> .schema
+CREATE TABLE edges(
+  "from_id" TEXT,
+  "to_id" TEXT,
+  "rank" TEXT,
+  "gender" TEXT,
+  "field" TEXT
+);
 ```
 
-### Anchors
+Now the other table:
 
-- `$` match at the end of the line
-- `^` match at the beginning of the line
-
-
-### Alternations
-
-- `a|b` match either `a` or `b`
-
-### Raw strings
-
-The `r` in front of the string means "do not interpret special characters". Note the difference between:
-
-```python
-print('my long \n line')
+```
+sqlite> .mode csv
+sqlite> .import all_institutions.csv nodes
+sqlite> .table
+edges  nodes
+sqlite> .schema
+CREATE TABLE edges(
+  "from_id" TEXT,
+  "to_id" TEXT,
+  "rank" TEXT,
+  "gender" TEXT,
+  "field" TEXT
+);
+CREATE TABLE nodes(
+  "id" TEXT,
+  "institution" TEXT,
+  "region" TEXT
+);
 ```
 
-which returns
+Save and quit:
 ```
-my long
- line
-```
-and 
-```python
-print('my long \n line')
-```
-which returns
-```
-my long \n line
+sqlite> .save hires.db
+# Then press Ctrl + D to quit
 ```
 
-### Groups
+If you save your commands in a script, you can run it automatically:
 
-Groups are defined by round brackets. The can be used to:
-
-- Organize your match (i.e., match separate pieces)
-
-```python
-re.findall(r'(\d+\.?\d*)\s[\+\-]\s(\d+\.?\d*)i', '50.3 + 25i')
 ```
-```
-[('50.3', '25')]
-```
-
-- To capture text flanked by known regions
-
-```python
-re.findall(r'Error: ([\w\s\_]+)', 'Error: page not found --- terminate')
-```
-```
-['page not found ']
+$ rm hires.db # delete file
+$ cat build_db.sql 
+.mode csv
+.import all_edges.csv edges
+.import all_institutions.csv nodes
+.table
+.schema
+$ sqlite3 hires.db < build_db.sql
+$ ls
 ```
 
-- To build complicated parts that would be difficult to write otherwise (e.g., complex alternations)
+### Simple queries
 
-### Functions in re
-
-- `re.findall` returns a list of matches (with groups a list of tuples)
-- `re.search` finds a match; returns a match object
-- `re.compile` stores the pattern, improving the speed
-- `re.split` split lines according to regex
-- `re.sub` substitution guided by regex
-
-### Greedy vs non-greedy
-- `? * +` are all greedy: they match as much as possible
-- to make them "reluctant", add a `?`
-
-```python
-re.match(r'.*\s', 'a sentence with multiple words').group()
-'a sentence with multiple '
-
-re.match(r'.*?\s', 'a sentence with multiple words').group()
-'a '
+```
+sqlite> .mode column # nicer appearence
+sqlite> .header on
+sqlite> SELECT * FROM nodes LIMIT 5;
+id          institution                   region    
+----------  ----------------------------  ----------
+1           Abilene Christian University  South     
+2           All others                    Earth     
+3           American University, Washing  South     
+4           Arizona State University      West      
+5           Auburn University             South    
 ```
 
-### Warmup exercise
+Unique regions:
 
-We are going to exploit a small ~~bug~~ feature of Scopus.
+```
+sqlite> SELECT DISTINCT region FROM nodes;
+region    
+----------
+South     
+Earth     
+West      
+Northeast 
+Midwest   
+Canada    
+```
 
-- Go to [Scopus.com](https://www.scopus.com)
-- Click on "Affiliations"
-- Search for "University of Chicago"
-- Click on "University of Chicago"
-- Click on the number of Authors in the top-right panel
-- The page should show the twenty most prolific authors with an affiliation to U of C
-- Go to the URL bar in your browser, and modify the address: instead of `resultsPerPage=20&` use `resultsPerPage=2000&`
-- Now you have information on 2000 authors!
-- Save the page in your sandbox as `scopus.html`
-- You are now the proud owner of a list of the 2000 most prolific authors at the University
+Sort them alphabetically
+```
+sqlite> SELECT DISTINCT region FROM nodes ORDER BY region;
+```
 
-1. For each author, use regular expressions to extact:
-   - Name
-   - Number of papers
-   - The first in the list of disciplines
-   
-2. Which discipline is most represented? Take the list of authors you've just produced, and tally the number of authors by discipline.
+Names contain "University"
+```
+sqlite> SELECT institution FROM nodes
+   ...> WHERE institution LIKE "%University%"
+   ...> LIMIT 5;   
+```
 
-3. What is the average number of papers for these authors?
+### Grouping 
 
-Here's the [solution](solutions/week4)
+Count the number of hires by gender
 
-**Note:** We have parsed HTML using regex, which is completely unnecessary; there are specialized tools for this task. We're going to look at one of them in week 6.
+```
+sqlite> SELECT gender, COUNT(*) FROM edges GROUP BY gender;
+```
 
+Count the number of hires by rank
+```
+sqlite> SELECT rank, COUNT(*) FROM edges GROUP BY rank;
+```
 
+Count by gender and rank
+
+```
+sqlite> SELECT gender, rank, COUNT(*) FROM edges GROUP BY gender, rank;
+```
+
+### Views and Joining
+
+Create a view where we specify the region of the PhD institution
+
+```
+sqlite> CREATE VIEW regionphd AS 
+        SELECT region AS from_reg, from_id, to_id 
+        FROM nodes INNER JOIN edges ON nodes.id = edges.from_id;
+```
+
+Now you can use the view as a normal table:
+
+```
+sqlite> .table
+sqlite> SELECT * FROM regionphd LIMIT 5;
+```
+
+Now join the view with `nodes` to get the region of the hiring institution:
+
+```
+sqlite> CREATE VIEW regionmove AS 
+        SELECT region AS to_reg, from_id, to_id, from_reg
+        FROM nodes INNER JOIN regionphd ON nodes.id = regionphd.to_id;
+```
+
+Create a table of flows from region to region:
+```
+SELECT from_reg, to_reg, COUNT(*) FROM regionmove GROUP BY from_reg, to_reg;
+```
+
+### Warmup
+
+- Build a query showing the top 10 institutions where UofC graduates end up working:
+
+<details>
+ <summary>Solution</summary>
+
+SELECT to_id, institution, COUNT(*) as N 
+FROM edges 
+INNER JOIN nodes ON nodes.id = edges.to_id 
+WHERE from_id == 152 
+GROUP BY to_id ORDER BY N  DESC LIMIT 10;
+
+</details>
+
+- Build a query showing the top 10 institution  UofC faculty come from:
+
+<details>
+ <summary>Solution</summary>
+ 
+SELECT from_id, institution, COUNT(*) as N 
+FROM edges 
+INNER JOIN nodes ON nodes.id = edges.from_id 
+WHERE to_id == 152 
+GROUP BY from_id ORDER BY N  DESC LIMIT 10;
+
+</details>
+
+- Find the 10 institutions with the highest proportion of female professors. Repeat with males.
+
+<details>
+ <summary>Solution</summary>
+
+First, we create a view containing the number of faculty by gender:
+
+CREATE VIEW prof_gender AS 
+SELECT to_id, institution, gender, COUNT(*) AS N 
+FROM edges INNER JOIN nodes ON nodes.id = edges.to_id 
+GROUP BY to_id, gender 
+ORDER BY institution, gender;
+
+Then, a view with the total number of profs:
+
+CREATE VIEW prof AS 
+SELECT to_id, institution, COUNT(*) AS N 
+FROM edges INNER JOIN nodes ON nodes.id = edges.to_id 
+GROUP BY to_id
+ORDER BY institution, gender;
+
+Now a view that joins the two views and computes the proportion of female and males profs:
+
+CREATE VIEW prop_gender AS 
+SELECT prof.institution, gender, 
+prof.N AS Tot, 
+prof_gender.N as G, 
+CAST(prof_gender.N AS REAL)/prof.N AS Proportion 
+FROM prof 
+LEFT JOIN prof_gender ON prof.institution  = prof_gender.institution;
+
+Now we can build simple queries to answer the questions:
+
+SELECT * FROM prop_gender 
+WHERE gender == "F" 
+ORDER BY Proportion DESC 
+LIMIT 10;
+
+SELECT * FROM prop_gender 
+WHERE gender == "M" 
+ORDER BY Proportion DESC 
+LIMIT 10;
+
+</details>

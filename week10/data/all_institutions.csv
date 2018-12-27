@@ -1,0 +1,244 @@
+id,institution,region
+1,Abilene Christian University,South
+2,All others,Earth
+3,"American University, Washington",South
+4,Arizona State University,West
+5,Auburn University,South
+6,Babson College,Northeast
+7,Baylor University,South
+8,Bentley University,Northeast
+9,Boston College,Northeast
+10,Boston University,Northeast
+11,Bowling Green State University,Midwest
+12,Brandeis University,Northeast
+13,Brigham Young University,West
+14,Brown University,Northeast
+15,California Institute of Technology,West
+16,Carleton University,Canada
+17,Carnegie Mellon University,Northeast
+18,Case Western Reserve University,Midwest
+19,Catholic University of America,South
+20,Claremont Graduate University,West
+21,Clarkson University,Northeast
+22,Clark University,Northeast
+23,Clemson University,South
+24,College of William and Mary,South
+25,Colorado School of Mines,West
+26,Colorado State University,West
+27,Columbia University,Northeast
+28,"Concordia University, Montreal",Canada
+29,Cornell University,Northeast
+30,CUNY Baruch College,Northeast
+31,CUNY Graduate Center,Northeast
+32,Dalhousie University,Canada
+33,Dartmouth College,Northeast
+34,DePaul University,Midwest
+35,Drew University,Northeast
+36,Drexel University,Northeast
+37,Duke University,South
+38,Emory University,South
+39,Florida Atlantic University,South
+40,Florida Institute of Technology,South
+41,Florida International University,South
+42,Florida State University,South
+43,Fordham University,Northeast
+44,George Mason University,South
+45,Georgetown University,South
+46,George Washington University,South
+47,Georgia State University,South
+48,Georgia Tech,South
+49,Graduate Theological Union,West
+50,Harvard University,Northeast
+51,Hofstra University,Northeast
+52,Howard University,South
+53,Illinois Institute of Technology,Midwest
+54,Illinois State University,Midwest
+55,Indiana University,Midwest
+56,Iowa State University,Midwest
+57,Jewish Theological Seminary of America,Northeast
+58,Johns Hopkins University,South
+59,Kansas State University,Midwest
+60,Kent State University,Midwest
+61,Lehigh University,Northeast
+62,Long Island University,Northeast
+63,Louisiana State University,South
+64,Loyola University Chicago,Midwest
+65,Marquette University,Midwest
+66,McGill University,Canada
+67,McMaster University,Canada
+68,Memorial University of Newfoundland,Canada
+69,"Miami University, Ohio",Midwest
+70,Michigan State University,Midwest
+71,Michigan Technological University,Midwest
+72,Middle Tennessee State University,South
+73,Mississippi State University,South
+74,Missouri University of Science and Technology,Midwest
+75,MIT,Northeast
+76,Montana State University,West
+77,Naval Postgraduate School,West
+78,New Jersey Institute of Technology,Northeast
+79,New Mexico Institute of Mining and Technology,West
+80,New Mexico State University,West
+81,New York University,Northeast
+82,North Carolina State University,South
+83,North Dakota State University,Midwest
+84,Northeastern University,Northeast
+85,Northern Arizona University,West
+86,Northern Illinois University,Midwest
+87,Northwestern University,Midwest
+88,Nova Southeastern University,South
+89,Oakland University (Michigan),Midwest
+90,Ohio State University,Midwest
+91,Ohio University,Midwest
+92,Oklahoma State University,South
+93,Old Dominion University,South
+94,Oregon Health and Science University,West
+95,Oregon State University,West
+96,Pace University,Northeast
+97,Pennsylvania State University,Northeast
+98,Pepperdine University,West
+99,Polytechnic Institute of NYU,Northeast
+100,Portland State University,West
+101,Princeton Theological Seminary,Northeast
+102,Princeton University,Northeast
+103,Purdue University,Midwest
+104,Queens University,Canada
+105,Rensselaer Polytechnic Institute,Northeast
+106,Rice University,South
+107,Rochester Institute of Technology,Northeast
+108,Rollins College,South
+109,Rutgers University,Northeast
+110,Saint Johns University,Northeast
+111,Saint Louis University,Midwest
+112,Santa Clara University,West
+113,Simon Fraser University,Canada
+114,Southern Baptist Theological Seminary,South
+115,"Southern Illinois University, Carbondale",Midwest
+116,Southern Methodist University,South
+117,Stanford University,West
+118,"State University of New York, Albany",Northeast
+119,"State University of New York, Binghamton",Northeast
+120,"State University of New York, Buffalo",Northeast
+121,"State University of New York, Stony Brook",Northeast
+122,Stevens Institute of Technology,Northeast
+123,Syracuse University,Northeast
+124,Temple University,Northeast
+125,Texas A&M,South
+126,Texas Christian University,South
+127,Texas Tech University,South
+128,Thunderbird School of Global Management,West
+129,Toyota Technological Institute at Chicago,Midwest
+130,Tufts University,Northeast
+131,Tulane University,South
+132,UC Berkeley,West
+133,UC Davis,West
+134,UC Irvine,West
+135,UCLA,West
+136,UC Riverside,West
+137,UC San Diego,West
+138,UC Santa Barbara,West
+139,UC Santa Cruz,West
+140,University of Akron,Midwest
+141,"University of Alabama, Birmingham",South
+142,"University of Alabama, Huntsville",South
+143,"University of Alabama, Tuscaloosa",South
+144,University of Alberta,Canada
+145,University of Arizona,West
+146,"University of Arkansas, Fayetteville",South
+147,"University of Arkansas, Little Rock",South
+148,University of Bridgeport,Northeast
+149,University of British Columbia,Canada
+150,University of Calgary,Canada
+151,University of Central Florida,South
+152,University of Chicago,Midwest
+153,University of Cincinnati,Midwest
+154,"University of Colorado, Boulder",West
+155,"University of Colorado, Colorado Springs",West
+156,"University of Colorado, Denver",West
+157,University of Connecticut,Northeast
+158,University of Delaware,South
+159,University of Denver,West
+160,University of Florida,South
+161,University of Georgia,South
+162,"University of Hawaii, Manoa",West
+163,University of Houston,South
+164,"University of Idaho, Moscow",West
+165,"University of Illinois, Chicago",Midwest
+166,"University of Illinois, Urbana Champaign",Midwest
+167,University of Iowa,Midwest
+168,"University of Kansas, Lawrence",Midwest
+169,University of Kentucky,South
+170,"University of Louisiana, Lafayette",South
+171,University of Louisville,South
+172,University of Maine,Northeast
+173,University of Manitoba,Canada
+174,"University of Maryland, Baltimore County",South
+175,"University of Maryland, College Park",South
+176,"University of Massachusetts, Amherst",Northeast
+177,"University of Massachusetts, Boston",Northeast
+178,"University of Massachusetts, Lowell",Northeast
+179,University of Memphis,South
+180,University of Miami,South
+181,University of Michigan,Midwest
+182,"University of Minnesota, Minneapolis",Midwest
+183,University of Mississippi,South
+184,"University of Missouri, Columbia",Midwest
+185,"University of Missouri, Kansas City",Midwest
+186,"University of Missouri, St. Louis",Midwest
+187,University of Montreal,Canada
+188,"University of Nebraska, Lincoln",Midwest
+189,"University of Nebraska, Omaha",Midwest
+190,"University of Nevada, Las Vegas",West
+191,"University of Nevada, Reno",West
+192,University of New Brunswick,Canada
+193,University of New Hampshire,Northeast
+194,University of New Mexico,West
+195,"University of North Carolina, Chapel Hill",South
+196,"University of North Carolina, Charlotte",South
+197,"University of North Texas, Denton",South
+198,University of Notre Dame,Midwest
+199,University of Oklahoma,South
+200,University of Oregon,West
+201,University of Ottawa,Canada
+202,University of Pennsylvania,Northeast
+203,University of Pittsburgh,Northeast
+204,University of Regina,Canada
+205,University of Rhode Island,Northeast
+206,University of Rochester,Northeast
+207,University of Saskatchewan,Canada
+208,University of South Carolina,South
+209,University of Southern California,West
+210,University of Southern Mississippi,South
+211,University of South Florida,South
+212,"University of Tennessee, Knoxville",South
+213,"University of Texas, Arlington",South
+214,"University of Texas, Austin",South
+215,"University of Texas, Dallas",South
+216,"University of Texas, El Paso",South
+217,"University of Texas, San Antonio",South
+218,University of Toledo,Midwest
+219,University of Toronto,Canada
+220,University of Tulsa,South
+221,University of Utah,West
+222,University of Victoria,Canada
+223,University of Virginia,South
+224,University of Washington,West
+225,University of Waterloo,Canada
+226,University of Western Ontario,Canada
+227,"University of Wisconsin, Madison",Midwest
+228,"University of Wisconsin, Milwaukee",Midwest
+229,University of Wyoming,West
+230,Utah State University,West
+231,Vanderbilt University,South
+232,Virginia Commonwealth University,South
+233,Virginia Tech,South
+234,Wake Forest University,South
+235,"Washington State University, Pullman",West
+236,"Washington University, St. Louis",Midwest
+237,Wayne State University,Midwest
+238,Western Michigan University,Midwest
+239,West Virginia University,South
+240,Worcester Polytechnic Institute,Northeast
+241,Wright State University,Midwest
+242,Yale University,Northeast
+243,York University,Canada

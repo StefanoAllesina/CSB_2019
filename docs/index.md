@@ -72,10 +72,13 @@ git clone https://github.com/StefanoAllesina/CSB_2019.git
 
 ### Week 8: Data wrangling and visualization
 
+- [Lecture notes and warmup](notes/week8)
+
 ### Week 9: R wrapup
 
 - [Lecture notes and warmup](notes/week9)
 
 ### Week 10: Relational databases
 
+- [Lecture notes and warmup](notes/week10)
    
