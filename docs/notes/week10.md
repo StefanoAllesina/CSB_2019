@@ -204,10 +204,10 @@ GROUP BY from_id ORDER BY N  DESC LIMIT 10;
 
 - Find the 10 institutions with the highest proportion of female professors. Repeat with males.
 
-<details>
- <summary>Solution</summary>
-
 First, we create a view containing the number of faculty by gender:
+
+<details>
+ <summary>Solution part 1</summary>
 
 CREATE VIEW prof_gender AS 
 SELECT to_id, institution, gender, COUNT(*) AS N 
@@ -215,7 +215,12 @@ FROM edges INNER JOIN nodes ON nodes.id = edges.to_id
 GROUP BY to_id, gender 
 ORDER BY institution, gender;
 
+</details>
+
 Then, a view with the total number of profs:
+
+<details>
+ <summary>Solution part 2</summary>
 
 CREATE VIEW prof AS 
 SELECT to_id, institution, COUNT(*) AS N 
@@ -223,7 +228,12 @@ FROM edges INNER JOIN nodes ON nodes.id = edges.to_id
 GROUP BY to_id
 ORDER BY institution, gender;
 
+</details>
+
 Now a view that joins the two views and computes the proportion of female and males profs:
+
+<details>
+ <summary>Solution part 3</summary>
 
 CREATE VIEW prop_gender AS 
 SELECT prof.institution, gender, 
@@ -233,15 +243,15 @@ CAST(prof_gender.N AS REAL)/prof.N AS Proportion
 FROM prof 
 LEFT JOIN prof_gender ON prof.institution  = prof_gender.institution;
 
+</details>
+
 Now we can build simple queries to answer the questions:
+
+<details>
+ <summary>Solution part 4</summary>
 
 SELECT * FROM prop_gender 
 WHERE gender == "F" 
-ORDER BY Proportion DESC 
-LIMIT 10;
-
-SELECT * FROM prop_gender 
-WHERE gender == "M" 
 ORDER BY Proportion DESC 
 LIMIT 10;
 
