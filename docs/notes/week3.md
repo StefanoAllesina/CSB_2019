@@ -33,6 +33,17 @@ from numpy import log # only one function
 
 Discuss namespace pollution
 
+### Warmup: Simple functions
+
+1. Write a function that computes the area of a circle given its radius (*A = π r^2*).
+2. Modify the function such that it can compute the area of a circle or a square (use an optional function argument to determine what to do).
+3. The area of a regular polygon is half of the product between the *apothem* (line segment from the center to the midpoint of one of its sides), and the *perimeter*. Write a function to compute the area of regular polygons accepting as input the number of sides, and the length of the side. 
+   * compute the apothem using trigonometry (*s* is the length of the side, *n* the number of sides):
+      <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7f3ca9bac6717a58814db4c9c4977e0d9f25133d" alt="apothem" width="100">
+   * compute the perimeter
+   * return the area
+   * examples: area of pentagon with unit sides is about 1.72; area of hexagon with sides of length 2 is about 10.39
+
 ### Splitting program into modules
 
 1. Save functions into a `py` file (e.g., `test_mod.py`)

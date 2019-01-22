@@ -168,3 +168,27 @@ for_heatmap <- dt %>%
 for_heatmap %>% 
   ggplot()+ aes(x = Year, y = Artist, fill = as.factor(Top)) + geom_tile() + scale_fill_manual(values = c("white", "black"))
 ```
+
+### Warmup: Baby names
+
+We are going to analyze data from the Social Security Administration on baby names. To load data on baby names, run
+
+```r
+library(tidyverse)
+# read the data
+dt <- read_csv("https://tinyurl.com/ycc4ndkd") %>% select(-state)
+```
+
+The data are composed of about 1.4M rows. Each row reports a the number of times (`count`) a name was given to boys (`sex == M`) or girls (`F`) in a certain `year`. Names occurring less than 5 times per gender are not reported. The data spans 1980 to 2015. 
+
+1. Find the number of distinct names for boys and girls.
+2. Find the name/year combination with highest `count` for each `sex`.
+3. Plot the number of distinct names for `M` or `F` in time.
+4. As you can see, the diversity of names has been growing. Plot the number of "effective" names in time. First, compute Shannon's entropy for each year/sex. Then exponentiate to obtain the number of names that would produce the same entropy while having equal frequency.
+5. Plot the difference in number of distinct names between `F` and `M` in time.
+6. Find the frequency with wich each name ends with a certain letter. Show a barplot for the probability that a name (for boys or girls) ends with a given letter. Use years 1950, 1975, 2000 and 2015.
+7. Plot the popularity of each letter for ending names in time, for boys and girls. Which letters are growing, which declining?
+8. Find the most popular names today that were not present in the 1950 data, and viceversa.
+
+
+
