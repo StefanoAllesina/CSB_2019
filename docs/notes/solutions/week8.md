@@ -1,3 +1,6 @@
+## Possible solution to warmup problem Week 8
+
+```r
 library(tidyverse)
 # read the data
 dt <- read_csv("https://tinyurl.com/ycc4ndkd") %>% select(-state)
@@ -114,4 +117,4 @@ plot_frequency_name(dt, "Kanye", c(2004)) # College dropout
 plot_frequency_name(dt, "Alanis", c(1995)) # Jagged little pill
 plot_frequency_name(dt, "Macaulay", c(1990)) # Home alone
 plot_frequency_name(dt, "Miley", c(2006)) # Hannah Montana
-
+```

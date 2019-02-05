@@ -101,7 +101,7 @@ my long
 ```
 and 
 ```python
-print('my long \n line')
+print(r'my long \n line')
 ```
 which returns
 ```
@@ -134,7 +134,7 @@ re.findall(r'Error: ([\w\s\_]+)', 'Error: page not found --- terminate')
 
 ### Functions in re
 
-- `re.findall` returns a list of matches (with groups a list of tuples)
+- `re.findall` returns a list of matches (groups are organized in a tuple)
 - `re.search` finds a match; returns a match object
 - `re.compile` stores the pattern, improving the speed
 - `re.split` split lines according to regex

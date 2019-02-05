@@ -189,6 +189,7 @@ The data are composed of about 1.4M rows. Each row reports a the number of times
 6. Find the frequency with wich each name ends with a certain letter. Show a barplot for the probability that a name (for boys or girls) ends with a given letter. Use years 1950, 1975, 2000 and 2015.
 7. Plot the popularity of each letter for ending names in time, for boys and girls. Which letters are growing, which declining?
 8. Find the most popular names today that were not present in the 1950 data, and viceversa.
+9. Check out some interesting trends: what happens to Neo after "The Matrix" (1999), Madonna after "Like a Virgin" (1983), and to Elvis after the debut (1956) and death (1977), Hermione after the first Harry Potter movie (2001), Diana after the royal wedding (1981) and death (1997), etc.?
 
-
+Here's a possible [solution](solutions/week8)
 

@@ -28,7 +28,7 @@ Behavior:
 - With *r* between 0 and 1, the population will eventually die, independent of the initial population.
 - With *r* between 1 and 2, the population will quickly approach the value  *r−1/r*, independent of the initial population.
 - With *r* between 2 and 3, the population will also eventually approach the same value *r−1/r*, but first will fluctuate around that value for some time.
-- With *r* between 3 and  *1+sqrt(6)≃3.44949 * from almost all initial conditions the population will approach permanent oscillations between two values. These two values are dependent on *r*.
+- With *r* between 3 and  *1+sqrt(6)≃3.44949* from almost all initial conditions the population will approach permanent oscillations between two values. These two values are dependent on *r*.
 - With *r* between 3.44949 and 3.54409 (approximately), from almost all initial conditions the population will approach permanent oscillations among four values.
 - With *r* increasing beyond 3.54409, from almost all initial conditions the population will approach oscillations among 8 values, then 16, 32, etc. The lengths of the parameter intervals that yield oscillations of a given length decrease rapidly.
 - At  *r≃3.56995* we have the onset of chaos, at the end of the period-doubling cascade. From almost all initial conditions, we no longer see oscillations of finite period. Slight variations in the initial population yield dramatically different results over time, a prime characteristic of chaos.

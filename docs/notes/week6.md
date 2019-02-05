@@ -56,7 +56,7 @@ for paper in papers:
 - For each paper in each page, extract the `paper_id`, `date`, `num_authors`, `title`, and save into a csv called `bioRXiv.csv`
 
 
-Here's a possible [solution](solutions/week6_download)
+Here's a possible [solution](solutions/week6_parse)
 
 ### Part 3: Data analysis
 
@@ -64,7 +64,7 @@ Here's a possible [solution](solutions/week6_download)
 
 - Draw the distribution of the number of authors in the *Subject Area*, and compute mean, median and other summary statistics on the distribution. If people choose different areas, we can see whether different disciplines have different authorship cultures.
 
-Here's a possible [solution](solutions/week6_download)
+Here's a possible [solution](solutions/week6_analyze)
 
 ### Part 4: Automation
 
