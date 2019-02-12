@@ -4,7 +4,31 @@ To wrapup the learning of Python, we are going to tackle a larger project: docum
 
 For this exercise, you can choose a *Subject Area* that interests you from the [website](https://www.biorxiv.org/); for the examples I am going to use *Ecology*.
 
+Good choices (i.e., disciplines with few pages) are:
+
+* `biophysics` (178)
+* `biochemistry` (118)
+* `animal-behavior-and-cognition` (69)
+* `cancer-biology` (134)
+* `clinical-trials` (8)
+* `developmental-biology` (128)
+* `ecology` (179)
+* `epidemiology` (115)
+* `immunology` (90)
+* `molecular-biology` (125)
+* `paleontology` (7)
+* `pathology` (9)
+* `pharmacology-and-toxicology` (32)
+* `physiology` (44)
+* `plant-biology` (112)
+* `scientific-communication-and-education` (29)
+* `synthetic-biology` (43)
+* `systems-biology` (132)
+* `zoology` (20)
+
 ### Part 1: Download metadata from bioRXiv
+
+For this we will need the module `requests` (to install, call `conda install -c anaconda requests` from the terminal).
 
 Write code that downloads all of the html files for a given Subject area. For example, the url:
 
@@ -33,6 +57,8 @@ page = requests.get(url, allow_redirects = True)
 Here's a possible [solution](solutions/week6_download)
 
 ### Part 2: Extract information from the pages
+
+For this we will need the module `bs4` (to install, call `conda install -c anaconda beautifulsoup4 ` from the terminal).
 
 - We're going to use BeautifulSoup, a great HTML parser. Here's what you would do to extract all paper titles from a page:
 
