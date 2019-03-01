@@ -68,7 +68,7 @@ The index ranges from 0 to approximately 1, with higher values standing for larg
 
 - Compute the Gini coefficient for the number of hires from each institution. How does it compare with economic inequality?
 
-## Proportion hires from an institution
+### Proportion hires from an institution
 
 - For each discipline and institution, compute the proportion of hires with a PhD from a given institution. (e.g., in CS, 15.4% of the faculty at Stanford hold a PhD from Berkeley)
 
