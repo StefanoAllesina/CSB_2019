@@ -1,3 +1,6 @@
+## Possible solution to warmup problem Week 9
+
+```r
 library(tidyverse)
 
 # 1. Write a function that accepts a filename for the edges, and one for the vertices, 
@@ -119,3 +122,5 @@ histry_prop <- get_proportions(histry)
 for (dd in list(cs_prop, business_prop, histry_prop)){
   print(dd %>% filter(from_inst == to_inst) %>% top_n(10, prop) %>% arrange(desc(prop)))
 }
+
+```

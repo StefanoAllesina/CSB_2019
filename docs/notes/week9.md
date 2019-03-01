@@ -1,6 +1,6 @@
 ## R wrapup
 
-To wrapup the learning of R, we are going to tackle a larger project: analyze the data by Clauset *et al.* ([Science Advances 2015](http://advances.sciencemag.org/content/1/1/e1400005)) on inequality in faculty hiring. They have manually compiled a list of faculty hires at major US research institutions in three disciplines (CS, Business, History), and for each member, they have recorded the institution where they did their PhD.
+To wrapup the learning of R, we are going to tackle a larger project: analyze the data by Clauset *et al.* ([Science Advances 2015](http://advances.sciencemag.org/content/1/1/e1400005)) on inequality in faculty hiring. They have manually compiled a list of faculty hires at major US research institutions in three disciplines (CS, Business, History). For each faculty member, they have recorded the institution that granted their PhD.
 
 ### Load and clean the data
 
@@ -11,7 +11,7 @@ library(tidyverse)
 edges <- read_tsv("../data/Dataset 1. Business_edgelist.txt")
 ```
 
-This is a list of edges:
+This is a list of edges (links connecting nodes in a network):
 
 - The first column contains the ID of the source university
 - The second column contains the ID of the hiring university
@@ -40,17 +40,13 @@ vertices <- vertices %>% rename(id = `# u`,
 vertices$usn <- as.integer(vertices$usn)
 ```
 
-- Write a function that accepts a filename for the edges, and one for the vertices, and performs the cleaning operations outlined above. The function should return a list with a `tibble` called `vertices` and another called `edges` Note however that the names of the columns vary among data sets! Can you find a way to rename them anyway?
+- Write a function that accepts a filename for the edges, and one for the vertices, and performs the cleaning operations outlined above. The function should return a list with a `tibble` called `vertices` and another called `edges` Note however that the names of the columns vary among data sets! Can you find a way to rename them anyway? ([hint](http://stackoverflow.com/questions/43578723/conditional-replacement-of-column-name-in-tibble-using-dplyr))
 
-- Run the data cleaning on the three data sets, and store the lists in `cs`, `business` and `histry` (no `o` otherwise you rename the command `history`)
+- Run the data cleaning on the three data sets, and store the lists in `cs`, `business` and `histry` (no `o` to prevent renaming the command `history`)
 
 ### Gender imbalance in rank
 
 - Produce a barplot of the count of M/F hires for each rank. In which field to we have the less gender imbalance?
-
-```{r}
-edges %>% ggplot(aes(x = gender, colour = gender, group = rank)) + geom_bar() + facet_wrap(~rank)
-```
 
 ### Top feeder institutions
 
@@ -72,6 +68,11 @@ The index ranges from 0 to approximately 1, with higher values standing for larg
 
 - Compute the Gini coefficient for the number of hires from each institution. How does it compare with economic inequality?
 
+## Proportion hires from an institution
 
+- For each discipline and institution, compute the proportion of hires with a PhD from a given institution. (e.g., in CS, 15.4% of the faculty at Stanford hold a PhD from Berkeley)
 
+- For each discipline, find the 10 most "inbred" institutions (i.e., those hiring their own graduates in higher proportion)
+
+Here's a possible [solution](solutions/week9)
 
