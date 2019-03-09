@@ -176,7 +176,7 @@ SELECT from_reg, to_reg, COUNT(*) FROM regionmove GROUP BY from_reg, to_reg;
 
 ### Warmup
 
-- Build a query showing the top 10 institutions where UofC graduates end up working:
+- Build a query showing the top 10 institutions where UofC (id = 152) graduates end up working:
 
 <details>
  <summary>Solution</summary>
